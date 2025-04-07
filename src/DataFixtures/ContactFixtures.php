@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use Faker\Factory;
 use App\Entity\Contact;
+use App\Entity\Categorie;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -13,6 +14,25 @@ class ContactFixtures extends Fixture
     public function load(ObjectManager $manager):void
     {
         $faker =Factory::create("fr_FR");
+
+        $categorie=new Categorie();
+        $categorie->setLibelle("Professionnel")
+                  ->setImage("https://picsum.photos/200/300")
+                  ->setDescription($faker->word());
+        $manager->persist($categorie);
+
+        $categorie=new Categorie();
+        $categorie->setLibelle("Sport")
+                  ->setImage("https://picsum.photos/200/300")
+                  ->setDescription($faker->word());
+        $manager->persist($categorie);
+
+        $categorie=new Categorie();
+        $categorie->setLibelle("privé")
+                  ->setImage("https://picsum.photos/200/300")
+                  ->setDescription($faker->word());
+        $manager->persist($categorie);
+
         $genres=["male","female"];
        
         for ($i=0; $i<100; $i++){
@@ -40,4 +60,3 @@ class ContactFixtures extends Fixture
     }
 
 }
- 19min

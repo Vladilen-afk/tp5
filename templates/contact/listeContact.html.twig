@@ -6,28 +6,30 @@
 <h1 class="text-center pt-2">Listes des contacts</h1>
 <div class="row">
 {%for leContact in lesContacts %}
-    <div class="card mb-3" style="width:260px">
-    <h3 class="card-header">{{leContact.nom}} {{leContact.prenom}}</h3>
-    <img class = "avatar mx-auto my-3 " style = "height = auto; max-width: 200px; display : block;"  src="{{ leContact.avatar }}" alt="">
-    <ul class="list-group list-group-flush">
-    <li class="list-group-item"> {{leContact.rue}} </li>
-    <li class="list-group-item">{{leContact.cp}}</li>
-    <li class="list-group-item">{{leContact.ville}}</li>
-    <li class="list-group-item">{{leContact.mail}}</li>
-    <li class="list-group-item">
-    {% if leContact.sexe==0%}
-         <span class="badge badge-info"> homme </span>
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-3">
+        <div class="card mb-3" >
+                <h3 class="card-header">{{leContact.nom}} {{leContact.prenom}}</h3>
+                <img class = "avatar mx-auto my-3" style = "height = auto; max-width: 200px; display : block;"  src=" {{ leContact.avatar }} " alt="card image">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item"> {{leContact.rue}} </li>
+                <li class="list-group-item">{{leContact.cp}}</li>
+                <li class="list-group-item">{{leContact.ville}}</li>
+                <li style="padding-left:10px;text-align:center"class="list-group-item">{{leContact.mail}}</li>
+                <li class="list-group-item">
+                {% if leContact.sexe==0%}
+                    <span class="badge badge-info"> homme </span>
 
-    {% else %}
-        <span class="badge badge-info"> femme </span>
-    {% endif %}
-    </li>
+                {% else %}
+                    <span class="badge badge-info"> femme </span>
+                {% endif %}
+                </li>
 
 
-    </ul>
-    <div class="card-body">
-        <a href="#" class="btn btn-info btn-block text-center">Detail</a>
-    </div>
+                </ul>
+                <div class="card-body">
+                    <a href="{{path('fiche_contact', {'id':leContact.id})}}" class="btn btn-info btn-block text-center">Detail</a>
+                </div>
+        </div>
     </div>
     {% endfor %}
 </div>
