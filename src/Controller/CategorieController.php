@@ -21,9 +21,9 @@ class CategorieController extends AbstractController
     }
 
 
-    #[Route('/categories', name: 'fiche_categorie')]
+    #[Route('/categorie/{id}', name: 'fiche_categorie')]
 
-    public function afficheCayegorie(Categorie $categorie)
+    public function lafficheCategorie(Categorie $categorie)
     {
         return $this->render('categorie/ficheCategorie.html.twig', [
             'laCategorie' => $categorie
