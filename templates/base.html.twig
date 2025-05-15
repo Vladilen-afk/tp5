@@ -20,13 +20,26 @@
 
             <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="{{path('app_contact')}}">listes des contacts</a>
-                </li>
 
-                <li class="nav-item active">
-                <a class="nav-link" href="{{path('app_categorie')}}">listes des categories</a>
-                </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion des contacts</a>
+                <div class="dropdown-menu" style="">
+                <a class="dropdown-item" href="{{path('app_contact')}}">listes des contacts</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href=" {{path('listeContactsSexe', {'sexe': 1})}} ">liste des femmes</a>
+                <a class="dropdown-item" href="{{path('listeContactsSexe', {'sexe': 0})}} ">liste des hommes</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gestion des categories</a>
+                <div class="dropdown-menu" style="">
+                <a class="dropdown-item" href="{{path('app_categorie')}}">listes des categories</a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href=" {{path('nbContactsParCat')}} ">nombre de contacts par categorie </a>
+                </div>
+            </li>
 
             </ul>
             </div>

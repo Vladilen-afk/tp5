@@ -29,4 +29,24 @@ class CategorieController extends AbstractController
             'laCategorie' => $categorie
         ]);
     }
+
+
+
+
+    #[Route('/categories/nbContactsParCat', name: 'nbContactsParCat')]
+
+    public function nbContactsParCat(CategorieRepository $repo)
+    {
+        $data="";
+        $categories = $repo->nbContactsParCat();
+        foreach ($categories as $ligne) {
+            $data .='{y:'.$ligne["nbContacts"].', label:"'.$ligne["libelle"].'"},';
+        
+        }
+        $data=substr($data, 0, -1);
+        return $this->render('categorie/nbContactsParCat.html.twig', [
+            'lesCategories' => $categories,
+            'data' => $data
+        ]);
+    }
 }
